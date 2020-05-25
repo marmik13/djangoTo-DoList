@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block titleblock %}
+	Edit Item: To-DO App
+{% endblock titleblock %}
+
+{% block content %}
+
+	{% if item %}
+	<div class="col-12 mt-3">
+		<h1 class="apptitle">Edit item</h1>
+	</div>
+	<div class="row my-3 border border-warning rounded">
+		<div class="col-12 my-5">
+			<form class="form-inline my-2 my-lg-0" method="post">{% csrf_token %}
+	        	<input class="form-control form-control-lg mr-sm-2 textbox" type="search" name="item" placeholder="{{item.item}}" value="{{item.item}}" aria-label="Search">
+	        	<input type="hidden" value="{{item.completed}}" name="completed">
+          		<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Edit Item</button>
+      		</form>	
+		</div>
+	</div>
+		
+	{% endif %}
+{% endblock content %}	

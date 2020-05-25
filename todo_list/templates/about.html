@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block titleblock %}
+	About: Know More About To-DO App
+{% endblock titleblock %}
+
+
+{% block content %}
+	<h1>TODO App</h1>
+	 	<div class="row text-center">
+		    <!-- Team item-->
+		    <div class="col-xl-3 col-sm-6 m-4 profilebox">
+		        <div class="bg-light rounded shadow py-5 px-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834133/avatar-2_f8dowd.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+		            <h5 class="mb-0">Marmik Patel </h5><span class="small text-uppercase text-muted">Django Developer</span>
+		            <ul class="social mb-0 list-inline mt-3">
+		                <li class="list-inline-item"><a href="https://www.facebook.com" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+		                <li class="list-inline-item"><a href="https://www.twitter.com" class="social-link"><i class="fa fa-twitter"></i></a></li>
+		                <li class="list-inline-item"><a href="https://www.instagram.com" class="social-link"><i class="fa fa-instagram"></i></a></li>
+		                <li class="list-inline-item"><a href="https://www.linkedin.com" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+		            </ul>
+		        </div>
+		    </div>
+		    <!-- End-->
+		    <div class="vl">
+				<ul class="text-left">
+			  		<li class="list-group-item" style="font-size: 22px;"><b>About TODO App</b></li>
+			  		<li class="list-group-item">
+			  			The TODO app lets a user create, read, update and delete to-do tasks. A task has a title and description and can be completed or active. Completed tasks can be deleted at once.
+			  		</li>
+			  		<li class="list-group-item" style="font-size: 22px;"><b>How to use?</b></li>
+			  		<li class="list-group-item">It is simple to use this app, just write your to-do task in the text box and hit the Add To List button, that's it and Your task is added to list. You can edit your tasks by clicking on it. You can cross off your completed tasks and delete them from list.
+			  		</li>
+			  		<li class="list-group-item"><b>Created By:</b>&nbsp; Marmik Patel,&nbsp; Python,&nbsp; Django&nbsp; Developer.</li>
+				</ul>
+		    </div>
+		</div>
+		<div class="col-12 text-center mt-5">
+		    <a href="{% url 'home' %}"class="btn btn-outline-dark btn-lg btn-block">Make your to-do list</a>
+			
+		</div>
+{% endblock content %}	

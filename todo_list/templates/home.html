@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block titleblock %}
+	Home: To-DO App
+{% endblock titleblock %}
+
+{% block content %}
+
+	{% if messages %}
+		{% for message in messages %}
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			  <strong>Aww yeah!</strong>  {{message}}
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+		{% endfor %}
+	{% endif %}
+	
+	<div class="row my-2">
+		<div class="col-12 my-3 text-center">
+			<h1 class="apptitle">Your To-Do List</h1>
+		</div>
+	</div>
+	{% if all_items|length == 0 %}
+		<table class="table table-bordered">
+			<thead class="thead-dark">
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">TO-DO Items</th>
+			      <th scope="col"><center>Status</center></th>
+			      <th scope="col"><center>Action</center></th>
+			    </tr>
+		  	</thead>
+		  	<tbody>
+		  		<tr>
+			  		<td colspan="4" class="py-5">
+			  			<center><h3>----------No items----------</h3></center> 
+			  		</td>
+		  		</tr>
+			</tbody>
+		</table>
+	{% endif %}
+	
+	{% if all_items %}
+	<table class="table table-bordered">
+		<thead class="thead-dark">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">TO-DO Items</th>
+		      <th scope="col"><center>Status</center></th>
+		      <th scope="col"><center>Action</center></th>
+		    </tr>
+	  	</thead>
+	  	<tbody>
+		{% for data in all_items %}
+			
+			{% if data.completed %}
+		 	
+		 		<tr class="table-secondary">
+		 			<td>
+						{{forloop.counter}}
+					</td>
+
+					<td class="striker text-wrap itemcell"><a href="{% url 'edit' data.id %}" class="itemlink">{{data.item}}</a></td>
+					
+					<td class="align-middle">
+						<center><a href="{% url 'uncross' data.id %}" class="btn btn-info">Uncross</a></center>
+					</td class="align-middle">
+					
+					<td>
+						<center><a href="{% url 'delete' data.id %}" class="btn btn-danger">Delete</a></center>
+					</td>
+				</tr>
+		
+			{% else %}
+		
+				<tr>
+					<td>
+						{{forloop.counter}}
+					</td>
+					
+					<td class="text-wrap itemcell"><a href="{% url 'edit' data.id %}" class="itemlink">{{data.item}}</a></td>
+					
+					<td class="align-middle">
+						<center><a href="{% url 'cross_off' data.id %}" class="btn btn-warning">Cross Off</a></center>
+					</td>
+					
+					<td class="align-middle">
+						<center><a href="{% url 'delete' data.id %}" class="btn btn-danger">Delete</a></center>
+					</td>
+				</tr>
+		
+			{% endif %}
+		
+		{% endfor %}
+		</tbody>
+	</table>
+	
+	{% endif %}
+
+{% endblock content %}
+
