@@ -5,7 +5,9 @@
 {% endblock titleblock %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
+	<h4 class="bg-light ml-2 py-2 col-3 border border-warning rounded text-center"><span>Hello,&nbsp;{{user}}</span></h4><br>
+{% endif %}
 	{% if messages %}
 		{% for message in messages %}
 			<div class="alert alert-warning alert-dismissible fade show" role="alert">

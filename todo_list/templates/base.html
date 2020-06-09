@@ -42,8 +42,14 @@
               <li class="nav-item">
                   <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">logout</a>
+              </li>
+              {% endif %}
           </ul>
           <form class="form-inline my-2 my-lg-0" action="{% url 'home' %}" method="post">{% csrf_token %}
+              <input type="hidden" name="username" value="{{user.id}}">
               <input class="form-control mr-sm-2" type="search" name="item" placeholder="To-Do item" aria-label="Search">
               <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Add To List</button>
           </form>

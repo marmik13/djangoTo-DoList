@@ -15,6 +15,7 @@
 			<form class="form-inline my-2 my-lg-0" method="post">{% csrf_token %}
 	        	<input class="form-control form-control-lg mr-sm-2 textbox" type="search" name="item" placeholder="{{item.item}}" value="{{item.item}}" aria-label="Search">
 	        	<input type="hidden" value="{{item.completed}}" name="completed">
+				<input type="hidden" value="{{user.id}}" name="username">
           		<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Edit Item</button>
       		</form>	
 		</div>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Register: ToDo-App
+{% endblock title %}
+
+{% block content %}
+<br><br>
+{% if messages %}
+    <center>
+    <ul class="alert alert-warning col-6 text-left">
+    {% for message in messages %}
+        {% if message.tags == "error" %}
+        <li class="ml-2">{{message}}</li>
+        {% else %}
+        <span class="alert alert-warning col-6">{{message}}</span>
+        {% endif %}    
+    {% endfor %}
+    </ul>
+    </center>
+{% endif %}
+<br>
+    <center><form class="col-6" method="post" action="{% url 'registration' %}">
+    {% csrf_token %}
+        <div class="form-col">
+            <div class="col">
+            <input type="text" class="form-control" name="username" placeholder="Username">
+            </div><br><br><br>
+            <div class="col">
+            <input type="email" class="form-control" name="email" placeholder="Email">
+            </div><br><br><br>
+            <div class="col">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+            </div><br><br><br>
+            <div class="col">
+            <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password">
+            </div><br>
+            <span><i>Already registered?&nbsp;Click to <a href="{% url 'login' %}">login</a></i></span><br><br>
+            <center><button class="btn btn-primary btn-lg" type="submit">Register</button></center>
+        </div>
+    </form></center>
+{% endblock content %}

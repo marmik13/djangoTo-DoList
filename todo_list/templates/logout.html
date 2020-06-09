@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login: ToDo-App
+{% endblock title %}
+
+{% block content %}
+<br><br>
+<center>
+    <div class="m-5">
+        <span class="display-4">You have been looged out!</span><br>
+        <h4 class="m-5"><i>Click to <a href="{% url 'login' %}">login</a></i></h4>
+    </div>
+</center>
+{% endblock content %}
